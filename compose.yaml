@@ -4,13 +4,14 @@ services:
     network_mode: "host"
     depends_on:
       - lso-server
-      # - furhat-sdk
     build:
       context: LSO-client
     secrets:
       - openai_api_key
     environment:
       - OPENAI_API_KEY_FILE=/run/secrets/openai_api_key
+      - ROBOT_ADDRESS=${ROBOT_ADDRESS}
+      - SERVER_ADDRESS=${SERVER_ADDRESS}
 
   lso-server:
     image: lso-server
@@ -18,18 +19,6 @@ services:
       - 9999:9999
     build:
       context: LSO-server
-
-# Per containerizzare l'SDK di Furhat, è necessario rendere visibile il microfono nel container
-
-  # furhat-sdk:
-  #   image: furhat-sdk
-  #   network_mode: "host"
-  #   ports:
-  #     - 1932:1932
-  #     - 8888:8888
-  #     - 8080:8080
-  #   build:
-  #     context: Furhat-SDK
 
 secrets:
   openai_api_key:

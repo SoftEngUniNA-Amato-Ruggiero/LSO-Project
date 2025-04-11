@@ -19,6 +19,7 @@ Il robot utilizzato è [Furhat](https://docs.furhat.io/).
   - Furhat SDK, ottenibile registrandosi su [Furhat.io](https://furhat.io/).
   - Key per le API di OpenAI, ottenibile registrandosi su [OpenAI API Platform](https://openai.com/api/). 
     - La key deve essere salvata in un file nella root della repository col nome `openai_api_key.txt`.
+  - L'indirizzo IP del robot deve essere salvato come variabile d'ambiente col nome "ROBOT_ADDRESS".
 
   ### Eseguire localmente:
   Eseguire individualmente il server e il client. Per istruzioni su come farlo, consultare i README delle relative repository.
